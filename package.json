@@ -1,0 +1,70 @@
+{
+  "name": "gwen-router",
+  "version": "1.0.0-beta.0",
+  "description": "Declarative type-safe wrapper for express router",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "lint": "tslint --format stylish --project tsconfig.json || exit 1",
+    "prebuild": "npm run clean && npm run lint",
+    "build": "tsc --project tsconfig.json",
+    "test": "nyc --all ts-mocha -p tsconfig.json test/index.ts src/*.spec.ts src/**/*.spec.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravindanve/gwen-router.git"
+  },
+  "keywords": [
+    "express-plugin",
+    "express",
+    "declarative",
+    "router",
+    "api",
+    "restful",
+    "web"
+  ],
+  "author": "Aravindan Ve <aravindan.ve@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aravindanve/gwen-router/issues"
+  },
+  "homepage": "https://github.com/aravindanve/gwen-router#readme",
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "**/*.spec.ts"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "all": true
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-as-promised": "^7.1.0",
+    "@types/expect": "^1.20.4",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "dtslint": "^0.8.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "rimraf": "^2.6.3",
+    "ts-mocha": "^6.0.0",
+    "tslint": "^5.18.0",
+    "tslint-eslint-rules": "^5.4.0",
+    "typescript": "^3.5.2"
+  },
+  "dependencies": {}
+}
